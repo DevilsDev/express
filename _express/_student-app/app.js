@@ -54,11 +54,11 @@ app.get("/new-entry", (req, res) => {
 app.post("/new-entry", (req, res) => {
 	//!
 	if (!req.body.title || !req.body.body) {
-		//!
+		//!Send a 400 status code and a message to the user with the value "Entries must have a title and an information body."
 		res.status(400).send("Entries must have a title and an information body.");
 		return;
 	}
-	//!
+	//! Appends a new element to the entries array
 	entries.push({
 		//! Sets the title of the page to the value of req.body.title
 		title: req.body.title,
@@ -71,9 +71,9 @@ app.post("/new-entry", (req, res) => {
 	res.redirect("/");
 });
 
-//!
+//! Creates a middleware function which is executed before the route handler.
 app.use((req, res) => {
-	//!
+	//!Sets the status code for the response. When the code is 404 then it will render temoplate 404.ejs
 	res.status(404).render("404");
 });
 
