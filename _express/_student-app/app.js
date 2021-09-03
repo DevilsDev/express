@@ -22,7 +22,7 @@ const entries = [];
 //!Sets app.local.entries to the value of the entries array
 app.locals.entries = entries;
 
-
+//!
 app.use(logger("dev"));
 
 //!Sets the views directory to the views folder
@@ -31,33 +31,49 @@ app.set("views", path.resolve(__dirname, "views"));
 //! Sets the views engine to use the ejs template engine
 app.set("view engine", "ejs");
 
+//!
 app.use(bodyParser.urlencoded({
+	//!
 	extended: false
 }));
 
+//!
 app.get("/", (req, res) => {
+	//!
 	res.render("index");
 });
 
+//! 
 app.get("/new-entry", (req, res) => {
+	//!
 	res.render("new-entry");
 });
 
+
+//!
 app.post("/new-entry", (req, res) => {
+	//!
 	if (!req.body.title || !req.body.body) {
+		//!
 		res.status(400).send("Entries must have a title and an information body.");
 		return;
 	}
+	//!
 	entries.push({
+		//! Sets the title of the page to the value of req.body.title
 		title: req.body.title,
+		//! Sets the body of the page to the value of req.body.body
 		body: req.body.body,
+		//! Sets the value of published to the value of a new Date object
 		published: new Date(),
 	});
+	//! Redirects the user to the index page
 	res.redirect("/");
 });
 
-
+//!
 app.use((req, res) => {
+	//!
 	res.status(404).render("404");
 });
 
