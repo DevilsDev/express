@@ -1,37 +1,41 @@
+// import packets
 const express = require("express");
 const path = require("path");
-const http = require("http");
+const http = require("http"); // using http protocol
 
+//create an instance of app using express
 const app = express();
 
-app.get("/", (req, res)=> {
-  res.end("Welcome to my homepage!");
+
+app.get("/", (req, res) => {
+    res.end("Welcome to my homepage!");
 });
 
-app.get("/about",(req, res) => {
-  res.end("Welcome to the about page!");
+app.get("/about", (req, res) => {
+    res.end("Welcome to the about page!");
 });
 
-app.get("/contacts", (req, res)=> {
-  res.end("Welcome to contacts page!");
+app.get("/contacts", (req, res) => {
+    res.end("Welcome to contacts page!");
 });
 
 app.get("/hello/:who", (req, res) => {
-  res.end("Hello, " + req.params.who + ".");
+    res.end("Hello, " + req.params.who + ".");
 })
 
-app.get("/redirect_home",(req, res)=> {
-  res.redirect("/");
+app.get("/redirect_home", (req, res) => {
+    res.redirect("/");
 });
 
 app.get("/sendnote", (req, res) => {
-  const filePath = path.resolve(__dirname, "notes.txt");
-  res.sendFile(filePath);
+    const filePath = path.resolve(__dirname, "notes.txt");
+    res.sendFile(filePath);
 });
 
 app.use((req, res) => {
-  res.statusCode = 404;
-  res.end("404!");
+    res.statusCode = 404;
+    res.end("404!");
 });
 
-  http.createServer(app).listen(3000);
+// using port 3000
+http.createServer(app).listen(3000);
