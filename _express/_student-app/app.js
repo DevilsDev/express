@@ -19,12 +19,16 @@ const app = express();
 //!Defines a constant variable called entries which is set to the value of an empty array
 const entries = [];
 
-
+//!Sets app.local.entries to the value of the entries array
 app.locals.entries = entries;
+
 
 app.use(logger("dev"));
 
+//!Sets the views directory to the views folder
 app.set("views", path.resolve(__dirname, "views"));
+
+//! Sets the views engine to use the ejs template engine
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({
@@ -52,10 +56,14 @@ app.post("/new-entry", (req, res) => {
 	res.redirect("/");
 });
 
+
 app.use((req, res) => {
 	res.status(404).render("404");
 });
 
+//! Creates a new instance of the server using port 3000 and the app as the callback function.
+//! And starts a server listening for connections.
 http.createServer(app).listen(3000, () => {
+	//! Prints a message to the console to show that the server is running.
 	console.log("Student example app started.");
 });
