@@ -1,12 +1,25 @@
+//!Defines a constant variable called http which is a reference to the http module.
 const http = require("http");
+
+//!Defines a constant variable called path which is a reference to the path module.
 const path = require("path");
+
+//!Defines a constant variable called express which is a reference to the express module.
 const express = require("express");
+
+//!Defines a constant variable called logger which is a reference to the morgan module
 const logger = require("morgan");
+
+//!Defines a constant variable called bodyParser which is a reference to the body-parser module.
 const bodyParser = require("body-parser");
 
+//!Defines a constant variable called app which is a reference to the express application.
 const app = express();
 
+//!Defines a constant variable called entries which is set to the value of an empty array
 const entries = [];
+
+
 app.locals.entries = entries;
 
 app.use(logger("dev"));
@@ -14,7 +27,9 @@ app.use(logger("dev"));
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
 
 app.get("/", (req, res) => {
 	res.render("index");
