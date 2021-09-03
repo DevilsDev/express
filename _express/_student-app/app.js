@@ -31,28 +31,28 @@ app.set("views", path.resolve(__dirname, "views"));
 //! Sets the views engine to use the ejs template engine
 app.set("view engine", "ejs");
 
-//!
+//!Returns middleware that only parses urlencoded bodies and only looks at requests where the Content-Type header matches the type option
 app.use(bodyParser.urlencoded({
-	//!
+	//!The extended option allows to choose between parsing the URL-encoded data with the querystring library (when false) or the qs library (when true).
 	extended: false
 }));
 
-//!
+//!Creates a middleware function that renders the index page
 app.get("/", (req, res) => {
-	//!
+	//!renders the index page
 	res.render("index");
 });
 
-//! 
+//!Creates a middleware function that renders the new-entry page
 app.get("/new-entry", (req, res) => {
-	//!
+	//!renders the new-entry page
 	res.render("new-entry");
 });
 
 
-//!
+//!Creates a post method that takes the request and response objects as parameters and adds the new entry to the entries array
 app.post("/new-entry", (req, res) => {
-	//!
+	//!Checks if the title and content exist
 	if (!req.body.title || !req.body.body) {
 		//!Send a 400 status code and a message to the user with the value "Entries must have a title and an information body."
 		res.status(400).send("Entries must have a title and an information body.");
