@@ -1,9 +1,13 @@
+//code to include the head on the page
 <% include ('header') %>
 
+//page heading
 <h2>Fill a new entry form</h2>
 
+										//input form for the app
 <form method="post" role="form">
 	<div class="form-group">
+										//title label
 		<label for="title">Title</label>
 		<input
 			type="text"
@@ -15,6 +19,7 @@
 		/>
 	</div>
 	<div class="form-group">
+										//textbox for user input
 		<label for="body">Entry text</label>
 		<textarea
 			class="form-control"
@@ -25,9 +30,11 @@
 			required
 		></textarea>
 	</div>
+										//submit button
 	<div class="form-group">
 		<input type="submit" value="Post entry" class="btn btn-primary" />
 	</div>
 </form>
 
+//code to include the footer on the page
 <% include ('footer') %>

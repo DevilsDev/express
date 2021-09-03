@@ -1,4 +1,9 @@
+//main page content
+
+//site header
 <% include ('header') %>
+
+//is there is entries, display them here
 <% if (entries.length) { %>
   <% entries.forEach(function(entry) { %>
     <div class="panel panel-default">
@@ -12,7 +17,11 @@
         <%= entry.body %>
       </div>
     </div>
+
+    //if there is no entries, link to make a new one
   <% }) %>
 <% } else { %>   No entries! <a href="/new-entry">Add information</a>!</a>
 <% } %>
+
+//displays site footer
 <% include ('footer') %>
