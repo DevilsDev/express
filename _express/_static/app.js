@@ -4,7 +4,7 @@ const http = require("http");
 
 const app = express();
 
-const publicPath = path.resolve(__dirname, "assest");
+const publicPath = path.resolve(__dirname, "asset"); // correcting a spelling error
 app.use(express.static(publicPath));
 
 app.use((req, res) => {
