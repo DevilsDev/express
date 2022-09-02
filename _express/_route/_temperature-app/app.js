@@ -1,6 +1,5 @@
  
 // import path 
-// NOTE path = orange
 const path = require("path");
 // import express
 // TODO express = blue
