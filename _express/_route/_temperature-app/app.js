@@ -1,4 +1,5 @@
 // import path 
+// ANCHOR: import path
 const path = require("path");
 // import express
 const express = require("express");
@@ -14,9 +15,11 @@ const weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
 
 
 // establish public as directory to serve from
+// ANCHOR: using path.resolve method
 app.use(express.static(path.resolve(__dirname, "public")));
 
 // establish views directory path
+// ANCHOR: using path.resolve method
 app.set("views", path.resolve(__dirname, "views"));
 // establish express view engine support for .ejs format
 app.set("view engine", "ejs");
