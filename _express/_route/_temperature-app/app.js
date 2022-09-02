@@ -19,7 +19,7 @@ const weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
 app.use(express.static(path.resolve(__dirname, "public")));
 
 // establish views directory path
-// ANCHOR: using path.resolve method
+// ANCHOR: using path.resolve method 
 app.set("views", path.resolve(__dirname, "views"));
 // establish express view engine support for .ejs format
 app.set("view engine", "ejs");
