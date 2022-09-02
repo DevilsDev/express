@@ -1,6 +1,9 @@
+ 
 // import path 
+// NOTE path = orange
 const path = require("path");
 // import express
+// TODO express = blue
 const express = require("express");
 // import zippity-do-dah 
 const zipdb = require("zippity-do-dah");
@@ -8,25 +11,31 @@ const zipdb = require("zippity-do-dah");
 const ForecastIo = require("forecastio");
 
 // init instance of express as app 
+// TODO
 const app = express();
 // init instance of forecastio with unique api key 
 const weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
 
 
 // establish public as directory to serve from
+// TODO 
 app.use(express.static(path.resolve(__dirname, "public")));
 
 // establish views directory path
+// TODO
 app.set("views", path.resolve(__dirname, "views"));
 // establish express view engine support for .ejs format
+// TODO
 app.set("view engine", "ejs");
 
 // root renders index.ejs
+// TODO
 app.get("/", (req, res) => {
 	res.render("index");
 });
 
 // some regex to decipher api call
+// TODO
 app.get(/^\/(\d{5})$/, (req, res, next) => {
 
 	// establish variables to use as args in .forecast() method
@@ -56,7 +65,9 @@ app.get(/^\/(\d{5})$/, (req, res, next) => {
 });
 
 // establish 404 view render when needed
+// TODO 
 app.use((req, res) => {
 	res.status(404).render("404");
 });
+// TODO
 app.listen(3000);
