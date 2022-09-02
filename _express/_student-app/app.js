@@ -1,5 +1,7 @@
 // Requires
+// FIXME: import http
 const http = require("http");
+// ANCHOR: import path
 const path = require("path");
 const express = require("express");
 const logger = require("morgan");
@@ -16,6 +18,7 @@ app.locals.entries = entries;
 app.use(logger("dev"));
 
 // Sets the current directory to be the views directory
+// ANCHOR: using path.resolve method
 app.set("views", path.resolve(__dirname, "views"));
 
 // Defines the renderer as ejs
@@ -59,6 +62,7 @@ app.use((req, res) => {
 });
 
 // Create server (app) on port 3000 and log that app started
+//FIXME: create server method on app variable and listen method on port 3000
 http.createServer(app).listen(3000, () => {
 	console.log("Student example app started.");
 });
