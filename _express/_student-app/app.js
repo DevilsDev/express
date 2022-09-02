@@ -3,6 +3,7 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const logger = require("morgan");
+// TODO Bodyparser comments 
 const bodyParser = require("body-parser");
 
 // Initialize express as app
@@ -23,6 +24,7 @@ app.set("view engine", "ejs");
 
 // Body parser automatically sets the html header type.
 // This argument ignores encoding the url extension
+// TODO 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Renders the index ejs file and sends it
