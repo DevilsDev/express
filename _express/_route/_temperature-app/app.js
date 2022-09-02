@@ -4,15 +4,15 @@ const path = require("path");
 // import express
 // TODO express = blue
 const express = require("express");
-// import zippity-do-dah 
+// STUB import zippity-do-dah 
 const zipdb = require("zippity-do-dah");
-// import  forecastio
+// STUB import  forecastio
 const ForecastIo = require("forecastio");
 
 // init instance of express as app 
 // TODO
 const app = express();
-// init instance of forecastio with unique api key 
+// STUB init instance of forecastio with unique api key 
 const weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
 
 
@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 // TODO
 app.get(/^\/(\d{5})$/, (req, res, next) => {
 
-	// establish variables to use as args in .forecast() method
+	// STUB establish variables to use as args in .forecast() method
  	const zipcode = req.params[0];
 	const location = zipdb.zipcode(zipcode);
 	if (!location.zipcode) {
@@ -48,14 +48,14 @@ app.get(/^\/(\d{5})$/, (req, res, next) => {
 	const latitude = location.latitude;
 	const longitude = location.longitude;
 
-	// call .forecast() method with args defined above
+	// STUB call .forecast() method with args defined above
 	weather.forecast(latitude, longitude, (err, data) => {
 		// error
 		if (err) {
 			next();
 			return;
 		}
-		// format and return response as a json
+		// STUB format and return response as a json
 		res.json({
 			zipcode: zipcode,
 			temperature: data.currently.temperature,
