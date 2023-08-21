@@ -25,5 +25,6 @@
       "widget.shadow": "#1F2D2A",
       "focusBorder": "#1F2D2A"
     }
-  }
+  },
+  "commentTranslate.hover.enabled": false
 }
