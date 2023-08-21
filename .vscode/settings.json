@@ -1,5 +1,7 @@
 {
   "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f",
     "[ColorCode]": {
       "foreground": "#EBFF99",
       "editor.foreground": "#DCF76E",
@@ -22,8 +24,6 @@
       "panel.background": "#192421",
       "widget.shadow": "#1F2D2A",
       "focusBorder": "#1F2D2A"
-    },
-    "editor.lineHighlightBackground": "#1073cf2d",
-    "editor.lineHighlightBorder": "#9fced11f"
+    }
   }
 }

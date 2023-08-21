@@ -13,3 +13,4 @@ app.use((req, res) => {
 });
 
 http.createServer(app).listen(3000);
+console.log("Welcom!")
